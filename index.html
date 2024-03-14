@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,1092 +11,2085 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="mobile-styles.css" />
     <title>Instagram</title>
   </head>
 
   <body>
-    <div class="main-container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="logo">
-            <img
-              alt="Instagram"
-              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-              srcset="
-                https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x
-              "
-            />
-          </div>
-          <div class="search-bar">
-            <div class="search-bar-inner">
-              <span class="search-icon"></span>
-              <span class="search-text">Search</span>
-            </div>
-          </div>
-          <div class="navbar-icons">
-            <div class="navbar-icons-inner">
-              <div>
-                <div class="">
-                  <a href="/" tabindex="0"
-                    ><svg
+    <div id="firebaseui-auth-container"></div>
+
+    <div id="main-app-content">
+      <div class="main-container">
+        <!-- <div class="navbar">
+
+                <div class="navbar-inner">
+
+                    <div class="logo">
+                      <img
+                        alt="Instagram"
+                        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                        srcset="
+                          https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x
+                        "
+                      />
+                    </div>
+
+                    <div class="search-bar">
+
+                      <div class="search-bar-inner">
+                        <span class="search-icon"></span>
+                        <span class="search-text">Search</span>
+                      </div>
+
+                    </div>
+
+                    <div class="navbar-icons">
+
+                    <div class="navbar-icons-inner">
+
+                        <div>
+                          
+                          <div class="">
+                            <a href="/" tabindex="0"
+                              <svg
+                                aria-label="Home"
+                                class="_8-yf5"
+                                fill="#262626"
+                                height="22"
+                                viewBox="0 0 48 48"
+                                width="22"
+                              >
+                                <path
+                                  d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z"
+                                >
+                                </path>
+                              
+                              </svg>
+                            </a>
+                          </div>
+
+                        </div>
+                        
+                      <div class="margin-left">
+
+                        <a class="xWeGp" href="/direct/inbox/" tabindex="0">
+                          <svg
+                            aria-label="Direct"
+                            class="_8-yf5"
+                            fill="#262626"
+                            height="22"
+                            viewBox="0 0 48 48"
+                            width="22">
+
+                            <path
+                              d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                            >
+                            </path>
+                            </svg>
+                        </a>
+
+                        <div class="_2g5Gx"></div>
+                      </div>
+
+                      <div class="margin-left">
+
+                        <a href="/explore/" tabindex="0"
+
+                          ><svg
+                            aria-label="Find People"
+                            class="_8-yf5"
+                            fill="#262626"
+                            height="22"
+                            viewBox="0 0 48 48"
+                            width="22"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z"
+                              fill-rule="evenodd"
+                            ></path>
+                            </svg>
+                          </a>
+
+                      </div>
+
+                      <div class="margin-left">
+
+                        <a class="_0ZPOP kIKUG" href="/accounts/activity/"
+                          ><svg
+                            aria-label="Activity Feed"
+                            class="_8-yf5"
+                            fill="#262626"
+                            height="22"
+                            viewBox="0 0 48 48"
+                            width="22"
+                          >
+                            <path
+                              d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                            ></path>
+                            </svg>
+                        </a>
+
+                        <div class="">
+                          <div class="poA5q" style="margin-left: -423px"></div>
+                        </div>
+
+                      </div>
+
+                      <div class="profile-pic margin-left">
+                        <img
+                          alt="imharjotsingh's profile picture"
+                          data-testid="user-avatar"
+                          draggable="false"
+                          src="assets/akhil.png"
+                        />
+                      </div>
+
+                      <div class="sign-out">
+                        <button  id="logout">Sign Out</button>
+                      </div>
+
+                      <div class="upload">
+
+                      <button  
+                      id="upload-button">
+                        Upload
+                      </button>
+
+                    </div>
+
+                    </div>
+
+                </div>
+
+                </div>
+
+              </div> -->
+
+        <main>
+          <div class="content-container">
+            <div class="side-nav">
+              <div class="nav-iterms">
+                <div class="logo px-3 py-5">
+                  <img
+                    src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                    srcset="
+                      https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x
+                    "
+                  />
+                </div>
+
+                <div class="menu-links">
+                  <div class="home mx-3" id="homebutton">
+                    <svg
                       aria-label="Home"
-                      class="_8-yf5"
-                      fill="#262626"
-                      height="22"
-                      viewBox="0 0 48 48"
-                      width="22"
+                      class="_ab6- text-dark"
+                      color="rgb(245, 245, 245)"
+                      fill="rgb(245, 245, 245)"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
                     >
                       <path
-                        d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z"
-                      ></path></svg
-                  ></a>
+                        d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></path>
+                    </svg>
+
+                    <div class="nav-heading px-3 fw-bold">Home</div>
+                  </div>
+
+                  <div class="search mt-4 mx-3">
+                    <svg
+                      aria-label="Search"
+                      class="_ab6- text-dark"
+                      color="rgb(245, 245, 245)"
+                      fill="rgb(245, 245, 245)"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></path>
+
+                      <line
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="16.511"
+                        x2="22"
+                        y1="16.511"
+                        y2="22"
+                      ></line>
+                    </svg>
+
+                    <div class="nav-heading px-3 fw-bold">Search</div>
+                  </div>
+
+                  <div class="explore mt-4 mx-3">
+                    <svg
+                      aria-label="Explore"
+                      class="_ab6- text-dark"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <polygon
+                        fill="none"
+                        points="13.941 13.953 7.581 16.424 10.06 10.056 16.42 7.585 13.941 13.953"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></polygon>
+
+                      <polygon
+                        fill-rule="evenodd"
+                        points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"
+                      ></polygon>
+
+                      <circle
+                        cx="12.001"
+                        cy="12.005"
+                        fill="none"
+                        r="10.5"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></circle>
+                    </svg>
+
+                    <div class="nav-heading px-3 fw-bold">Explore</div>
+                  </div>
+
+                  <div class="reels mt-4 mx-3">
+                    <svg
+                      aria-label="Reels"
+                      class="_ab6- text-dark"
+                      color="rgb(245, 245, 245)"
+                      fill="rgb(245, 245, 245)"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <line
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="2.049"
+                        x2="21.95"
+                        y1="7.002"
+                        y2="7.002"
+                      ></line>
+
+                      <line
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="13.504"
+                        x2="16.362"
+                        y1="2.001"
+                        y2="7.002"
+                      ></line>
+
+                      <line
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="7.207"
+                        x2="10.002"
+                        y1="2.11"
+                        y2="7.002"
+                      ></line>
+
+                      <path
+                        d="M2 12.001v3.449c0 2.849.698 4.006 1.606 4.945.94.908 2.098 1.607 4.946 1.607h6.896c2.848 0 4.006-.699 4.946-1.607.908-.939 1.606-2.096 1.606-4.945V8.552c0-2.848-.698-4.006-1.606-4.945C19.454 2.699 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.546 2 5.704 2 8.552Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></path>
+
+                      <path
+                        d="M9.763 17.664a.908.908 0 0 1-.454-.787V11.63a.909.909 0 0 1 1.364-.788l4.545 2.624a.909.909 0 0 1 0 1.575l-4.545 2.624a.91.91 0 0 1-.91 0Z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+
+                    <div class="nav-heading px-3 fw-bold">Reels</div>
+                  </div>
+
+                  <div class="create mt-4 create mx-3">
+                    <svg
+                      aria-label="New post"
+                      class="_ab6- text-dark"
+                      style="
+                        border-radius: none;
+                        color: white;
+                        border: none;
+                        color: rgb(245, 245, 245);
+                      "
+                      fill="rgb(245, 245, 245)"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></path>
+
+                      <line
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="6.545"
+                        x2="17.455"
+                        y1="12.001"
+                        y2="12.001"
+                      ></line>
+
+                      <line
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="12.003"
+                        x2="12.003"
+                        y1="6.545"
+                        y2="17.455"
+                      ></line>
+                    </svg>
+
+                    <div class="nav-heading px-3">Create</div>
+                  </div>
+
+                  <div class="massages mt-4 mx-3">
+                    <svg
+                      aria-label="Direct"
+                      class="_ab6- text-dark"
+                      color="rgb(245, 245, 245)"
+                      fill="rgb(245, 245, 245)"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <line
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="22"
+                        x2="9.218"
+                        y1="3"
+                        y2="10.083"
+                      ></line>
+
+                      <polygon
+                        fill="none"
+                        points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                        stroke="currentColor"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></polygon>
+                    </svg>
+
+                    <div class="nav-heading px-3">Messages</div>
+                  </div>
+
+                  <div class="notifications mt-4 mx-3">
+                    <svg
+                      aria-label="Notifications"
+                      class="x1lliihq x1n2onr6 text-dark"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <title>Notifications</title>
+
+                      <path
+                        d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"
+                      ></path>
+                    </svg>
+
+                    <div class="nav-heading px-3">Notifications</div>
+                  </div>
+
+                  <div class="profile mt-4 mx-3" id="profile">
+                    <div
+                      class="profile-image"
+                      style="width: 22px; height: 25px"
+                    >
+                      <img src="assets/akhil.png" />
+                    </div>
+
+                    <div class="nav-heading mx-3">Profile</div>
+                  </div>
+                </div>
+
+                <div class="more mx-3">
+                  <svg
+                    aria-label="Settings"
+                    class="_ab6-"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <line
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      x1="3"
+                      x2="21"
+                      y1="4"
+                      y2="4"
+                    ></line>
+
+                    <line
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      x1="3"
+                      x2="21"
+                      y1="12"
+                      y2="12"
+                    ></line>
+
+                    <line
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      x1="3"
+                      x2="21"
+                      y1="20"
+                      y2="20"
+                    ></line>
+                  </svg>
+
+                  <div class="nav-heading px-3 fw-bold">More</div>
                 </div>
               </div>
-              <div class="margin-left">
-                <a class="xWeGp" href="/direct/inbox/" tabindex="0"
-                  ><svg
-                    aria-label="Direct"
-                    class="_8-yf5"
-                    fill="#262626"
-                    height="22"
-                    viewBox="0 0 48 48"
-                    width="22"
-                  >
-                    <path
-                      d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
-                    ></path></svg
-                ></a>
-                <div class="_2g5Gx"></div>
-              </div>
-              <div class="margin-left">
-                <a href="/explore/" tabindex="0"
-                  ><svg
-                    aria-label="Find People"
-                    class="_8-yf5"
-                    fill="#262626"
-                    height="22"
-                    viewBox="0 0 48 48"
-                    width="22"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z"
-                      fill-rule="evenodd"
-                    ></path></svg
-                ></a>
-              </div>
-              <div class="margin-left">
-                <a class="_0ZPOP kIKUG" href="/accounts/activity/"
-                  ><svg
-                    aria-label="Activity Feed"
-                    class="_8-yf5"
-                    fill="#262626"
-                    height="22"
-                    viewBox="0 0 48 48"
-                    width="22"
-                  >
-                    <path
-                      d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                    ></path></svg
-                ></a>
-                <div class="">
-                  <div class="poA5q" style="margin-left: -423px"></div>
+            </div>
+
+            <div class="middlecontentSection">
+              <div class="profileScreen" id="profilescren">
+                <div class="profile-container border-bottom border-secondary">
+                  <div class="profileSection mb-5">
+                    <div class="profileScreen-profilepic">
+                      <img src="assets/akhil.png" />
+                    </div>
+
+                    <div class="details fw-bold">
+                      <div class="section1">
+                        <div class="username-profile-tab-name mx-2"></div>
+                        <div class="mx-2">
+                          <a class="btn btn-secondary px-2">Edith Profile</a>
+                        </div>
+                        <div class="mx-2">
+                          <a class="btn btn-secondary px-2">View Archive</a>
+                        </div>
+                      </div>
+
+                      <div class="section2 mt-3">
+                        <div class="mx-2">2K Posts</div>
+                        <div class="mx-2">36.5 M Followers</div>
+                        <div class="mx-2">7 Following</div>
+                      </div>
+
+                      <div class="section3 mt-3">
+                        <div
+                          class="name-profile fw-bold mx-2"
+                          style="font-weight: bold"
+                        ></div>
+                        <div class="fw-bold logout" style="display: flex">
+                          <button
+                            class="btn btn-secondary mx-2 d-flex"
+                            id="logoutButton"
+                          >
+                            Logout
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="profileFooterSection" style="width: 98%">
+                  <!-- id="pts"class="posts" -->
+                  <div class="ownPostholder">
+                    <div id="ownPost"></div>
+                  </div>
+
+                  <div class="profileFooter py-4">
+                    <div class="links fw-bold">
+                      <div class="px-2">Meta</div>
+                      <div class="px-2">About</div>
+                      <div class="px-2">Bog</div>
+                      <div class="px-2">Jobs</div>
+                      <div class="px-2">Help</div>
+                      <div class="px-2">API</div>
+                      <div class="px-2">Privacy</div>
+                      <div class="px-2">Terms</div>
+                      <div class="px-2">Locations</div>
+                      <div class="px-2">Instagram Lite</div>
+                      <div class="px-2">Treads</div>
+                      <div class="px-2">Contact uploading and Non-users</div>
+                      <div class="px-2">Meta Verified</div>
+                    </div>
+
+                    <div class="search-tab pt-3">
+                      <div class="second-content px-2">
+                        <select aria-label="Switch display language">
+                          <option value="af">Afrikaans</option>
+                          <option value="cs">Čeština</option>
+                          <option value="da">Dansk</option>
+                          <option value="de">Deutsch</option>
+                          <option value="el">Ελληνικά</option>
+                          <option value="en">English</option>
+                          <option value="en-gb">English (UK)</option>
+                          <option value="es">Español (España)</option>
+                          <option value="es-la">Español</option>
+                          <option value="fi">Suomi</option>
+                          <option value="fr">Français</option>
+                          <option value="id">Bahasa Indonesia</option>
+                          <option value="it">Italiano</option>
+                          <option value="ja">日本語</option>
+                          <option value="ko">한국어</option>
+                          <option value="ms">Bahasa Melayu</option>
+                          <option value="nb">Norsk</option>
+                          <option value="nl">Nederlands</option>
+                          <option value="pl">Polski</option>
+                          <option value="pt-br">Português (Brasil)</option>
+                          <option value="pt">Português (Portugal)</option>
+                          <option value="ru">Русский</option>
+                          <option value="sv">Svenska</option>
+                          <option value="th">ภาษาไทย</option>
+                          <option value="tl">Filipino</option>
+                          <option value="tr">Türkçe</option>
+                          <option value="zh-cn">中文(简体)</option>
+                          <option value="zh-tw">中文(台灣)</option>
+                          <option value="bn">বাংলা</option>
+                          <option value="gu">ગુજરાતી</option>
+                          <option value="hi">हिन्दी</option>
+                          <option value="hr">Hrvatski</option>
+                          <option value="hu">Magyar</option>
+                          <option value="kn">ಕನ್ನಡ</option>
+                          <option value="ml">മലയാളം</option>
+                          <option value="mr">मराठी</option>
+                          <option value="ne">नेपाली</option>
+                          <option value="pa">ਪੰਜਾਬੀ</option>
+                          <option value="si">සිංහල</option>
+                          <option value="sk">Slovenčina</option>
+                          <option value="ta">தமிழ்</option>
+                          <option value="te">తెలుగు</option>
+                          <option value="vi">Tiếng Việt</option>
+                          <option value="zh-hk">中文(香港)</option>
+                          <option value="bg">Български</option>
+                          <option value="fr-ca">Français (Canada)</option>
+                          <option value="ro">Română</option>
+                          <option value="sr">Српски</option>
+                          <option value="uk">Українська</option>
+                        </select>
+                      </div>
+                      <div class="second-content">
+                        © 2024 Instagram from Meta
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="profile-pic margin-left">
-                <img
-                  alt="imharjotsingh's profile picture"
-                  data-testid="user-avatar"
-                  draggable="false"
-                  src="assets/akhil.png"
-                />
+
+              <div class="content">
+                <div class="stories">
+                  <div class="stories-inner">
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">akhilboddu</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">nastycsa</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">jayshetty</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">cleverqazi</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">poojahegde</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">she.cancode</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">anushkasharma</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">tech.unicorn</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">lamborghini</span>
+                    </div>
+
+                    <div class="story">
+                      <img
+                        class="story-image"
+                        alt="akhilboddu's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                      <div class="story-border"></div>
+                      <span class="story-text">garyvee</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="pts" class="posts">
+                  <div class="post">
+                    <div class="header">
+                      <div class="profile-area">
+                        <div class="post-pic">
+                          <img
+                            alt="jayshetty's profile picture"
+                            class="_6q-tv"
+                            data-testid="user-avatar"
+                            draggable="false"
+                            src="assets/akhil.png"
+                          />
+                        </div>
+
+                        <span class="profile-name">jayshetty</span>
+                      </div>
+
+                      <div class="options">
+                        <div
+                          class="Igw0E rBNOH YBx95 _4EzTm"
+                          style="height: 24px; width: 24px"
+                        >
+                          <svg
+                            id="moreOptions"
+                            aria-label="More options"
+                            class="_8-yf5"
+                            fill="#262626"
+                            height="16"
+                            viewBox="0 0 48 48"
+                            width="16"
+                          >
+                            <circle
+                              clip-rule="evenodd"
+                              cx="8"
+                              cy="24"
+                              fill-rule="evenodd"
+                              r="4.5"
+                            ></circle>
+
+                            <circle
+                              clip-rule="evenodd"
+                              cx="24"
+                              cy="24"
+                              fill-rule="evenodd"
+                              r="4.5"
+                            ></circle>
+
+                            <circle
+                              clip-rule="evenodd"
+                              cx="40"
+                              cy="24"
+                              fill-rule="evenodd"
+                              r="4.5"
+                            ></circle>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="body">
+                      <img
+                        alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
+                        class="FFVAD"
+                        decoding="auto"
+                        sizes="614px"
+                        src="assets/post.png"
+                        style="object-fit: cover"
+                      />
+                    </div>
+
+                    <div class="footer">
+                      <div class="user-actions">
+                        <div class="like-comment-share">
+                          <div>
+                            <span class=""
+                              ><svg
+                                aria-label="Like"
+                                class="_8-yf5"
+                                fill="#262626"
+                                height="24"
+                                viewBox="0 0 48 48"
+                                width="24"
+                              >
+                                <path
+                                  d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                ></path>
+                              </svg>
+                            </span>
+                          </div>
+
+                          <div class="margin-left-small">
+                            <svg
+                              aria-label="Comment"
+                              class="_8-yf5"
+                              fill="#262626"
+                              height="24"
+                              viewBox="0 0 48 48"
+                              width="24"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                                fill-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+
+                          <div class="margin-left-small">
+                            <svg
+                              aria-label="Share Post"
+                              class="_8-yf5"
+                              fill="#262626"
+                              height="24"
+                              viewBox="0 0 48 48"
+                              width="24"
+                            >
+                              <path
+                                d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+
+                        <div class="bookmark">
+                          <div class="QBdPU rrUvL">
+                            <svg
+                              aria-label="Save"
+                              class="_8-yf5"
+                              fill="#262626"
+                              height="24"
+                              viewBox="0 0 48 48"
+                              width="24"
+                            >
+                              <path
+                                d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <span class="likes"
+                        >Liked by <b>ishitaaaa.b</b> and <b>others</b>
+                      </span>
+
+                      <span class="caption">
+                        <span class="caption-username"><b>jayshetty</b></span>
+                        <span class="caption-text">
+                          ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
+                          more</span
+                        >
+                      </span>
+
+                      <span class="comment">
+                        <span class="caption-username"><b>akhilboddu</b></span>
+                        <span class="caption-text">Thank you</span>
+                      </span>
+
+                      <span class="comment">
+                        <span class="caption-username"><b>imharjot</b></span>
+                        <span class="caption-text"> Great stuff</span>
+                      </span>
+
+                      <span class="posted-time">5 HOURS AGO</span>
+                    </div>
+
+                    <div class="add-comment">
+                      <input type="text" placeholder="Add a comment..." />
+                      <a class="post-btn">Post</a>
+                    </div>
+                  </div>
+
+                  <!-- <div class="post">
+                        <div class="header">
+
+                          <div class="profile-area">
+
+                            <div class="post-pic">
+                              <img
+                                alt="jayshetty's profile picture"
+                                class="_6q-tv"
+                                data-testid="user-avatar"
+                                draggable="false"
+                                src="assets/akhil.png"
+                              />
+                            </div>
+
+                            <span class="profile-name">jayshetty</span>
+                          </div>
+
+                          <div class="options">
+
+                            <div
+                              class="Igw0E rBNOH YBx95 _4EzTm"
+                              style="height: 24px; width: 24px"
+                            >
+                              <svg
+                                aria-label="More options"
+                                class="_8-yf5"
+                                fill="#262626"
+                                height="16"
+                                viewBox="0 0 48 48"
+                                width="16"
+                              >
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="8"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                                
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="24"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="40"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+
+                              </svg>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div class="body">
+                          <img
+                            alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
+                            class="FFVAD"
+                            decoding="auto"
+                            sizes="614px"
+                            src="assets/post.png"
+                            style="object-fit: cover"
+                          />
+                        </div>
+
+                        <div class="footer">
+                          
+                          <div class="user-actions">
+
+                            <div class="like-comment-share">
+
+                              <div>
+
+                                <span class=""
+                                  ><svg
+                                    aria-label="Like"
+                                    class="_8-yf5"
+                                    fill="#262626"
+                                    height="24"
+                                    viewBox="0 0 48 48"
+                                    width="24"
+                                  >
+                                    <path
+                                      d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                    ></path></svg>
+                                </span>
+
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Comment"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                                    fill-rule="evenodd"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Share Post"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                            <div class="bookmark">
+
+                              <div class="QBdPU rrUvL">
+                                <svg
+                                  aria-label="Save"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                          <span class="likes"
+                            >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
+                          >
+                          <span class="caption">
+                            <span class="caption-username"><b>jayshetty</b></span>
+                            <span class="caption-text">
+                              ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
+                              more</span
+                            >
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>akhilboddu</b></span>
+                            <span class="caption-text">Thank you</span>
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>imharjot</b></span>
+                            <span class="caption-text"> Great stuff</span>
+                          </span>
+
+                          <span class="posted-time">5 HOURS AGO</span>
+                        </div>
+
+                        <div class="add-comment">
+                          <input type="text" placeholder="Add a comment..." />
+                          <a class="post-btn">Post</a>
+                        </div>
+
+                      </div>
+
+                      <div class="post">
+
+                        <div class="header">
+
+                          <div class="profile-area">
+
+                            <div class="post-pic">
+                              <img
+                                alt="jayshetty's profile picture"
+                                class="_6q-tv"
+                                data-testid="user-avatar"
+                                draggable="false"
+                                src="assets/akhil.png"
+                              />
+                            </div>
+
+                            <span class="profile-name">jayshetty</span>
+                          </div>
+
+                          <div class="options">
+
+                            <div
+                              class="Igw0E rBNOH YBx95 _4EzTm"
+                              style="height: 24px; width: 24px"
+                            >
+                              <svg
+                                aria-label="More options"
+                                class="_8-yf5"
+                                fill="#262626"
+                                height="16"
+                                viewBox="0 0 48 48"
+                                width="16"
+                              >
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="8"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="24"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="40"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                              </svg>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div class="body">
+                          <img
+                            alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
+                            class="FFVAD"
+                            decoding="auto"
+                            sizes="614px"
+                            src="assets/post.png"
+                            style="object-fit: cover"
+                          />
+                        </div>
+
+                        <div class="footer">
+
+                          <div class="user-actions">
+
+                            <div class="like-comment-share">
+
+                              <div>
+                                <span class=""
+                                  ><svg
+                                    aria-label="Like"
+                                    class="_8-yf5"
+                                    fill="#262626"
+                                    height="24"
+                                    viewBox="0 0 48 48"
+                                    width="24"
+                                  >
+                                    <path
+                                      d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                    ></path></svg>
+                                </span>
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Comment"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                                    fill-rule="evenodd"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Share Post"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                            <div class="bookmark">
+
+                              <div class="QBdPU rrUvL">
+                                <svg
+                                  aria-label="Save"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                          <span class="likes"
+                            >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
+                          >
+                          <span class="caption">
+                            <span class="caption-username"><b>jayshetty</b></span>
+                            <span class="caption-text">
+                              ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
+                              more</span
+                            >
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>akhilboddu</b></span>
+                            <span class="caption-text">Thank you</span>
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>imharjot</b></span>
+                            <span class="caption-text"> Great stuff</span>
+                          </span>
+
+                          <span class="posted-time">5 HOURS AGO</span>
+                        </div>
+
+                        <div class="add-comment">
+                          <input type="text" placeholder="Add a comment..." />
+                          <a class="post-btn">Post</a>
+                        </div>
+
+                      </div>
+
+                      <div class="post">
+
+                        <div class="header">
+
+                          <div class="profile-area">
+
+                            <div class="post-pic">
+                              <img
+                                alt="jayshetty's profile picture"
+                                class="_6q-tv"
+                                data-testid="user-avatar"
+                                draggable="false"
+                                src="assets/akhil.png"
+                              />
+                            </div>
+
+                            <span class="profile-name">jayshetty</span>
+                          </div>
+
+                          <div class="options">
+
+                            <div
+                              class="Igw0E rBNOH YBx95 _4EzTm"
+                              style="height: 24px; width: 24px"
+                            >
+                              <svg
+                                aria-label="More options"
+                                class="_8-yf5"
+                                fill="#262626"
+                                height="16"
+                                viewBox="0 0 48 48"
+                                width="16"
+                              >
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="8"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="24"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="40"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                              </svg>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div class="body">
+
+                          <img
+                            alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
+                            class="FFVAD"
+                            decoding="auto"
+                            sizes="614px"
+                            src="assets/post.png"
+                            style="object-fit: cover"
+                          />
+
+                        </div>
+
+                        <div class="footer">
+
+                          <div class="user-actions">
+
+                            <div class="like-comment-share">
+
+                              <div>
+                                <span class=""
+                                  ><svg
+                                    aria-label="Like"
+                                    class="_8-yf5"
+                                    fill="#262626"
+                                    height="24"
+                                    viewBox="0 0 48 48"
+                                    width="24"
+                                  >
+                                    <path
+                                      d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                    ></path></svg>
+                                </span>
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Comment"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                                    fill-rule="evenodd"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Share Post"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                            <div class="bookmark">
+
+                              <div class="QBdPU rrUvL">
+                                <svg
+                                  aria-label="Save"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                          <span class="likes"
+                            >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
+                          >
+                          <span class="caption">
+                            <span class="caption-username"><b>jayshetty</b></span>
+                            <span class="caption-text">
+                              ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
+                              more</span
+                            >
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>akhilboddu</b></span>
+                            <span class="caption-text">Thank you</span>
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>imharjot</b></span>
+                            <span class="caption-text"> Great stuff</span>
+                          </span>
+
+                          <span class="posted-time">5 HOURS AGO</span>
+                        </div>
+
+                        <div class="add-comment">
+                          <input type="text" placeholder="Add a comment..." />
+                          <a class="post-btn">Post</a>
+                        </div>
+
+                      </div>
+
+                      <div class="post">
+
+                        <div class="header">
+
+                          <div class="profile-area">
+                            <div class="post-pic">
+                              <img
+                                alt="jayshetty's profile picture"
+                                class="_6q-tv"
+                                data-testid="user-avatar"
+                                draggable="false"
+                                src="assets/akhil.png"
+                              />
+                            </div>
+                            <span class="profile-name">jayshetty</span>
+                          </div>
+
+                          <div class="options">
+
+                            <div
+                              class="Igw0E rBNOH YBx95 _4EzTm"
+                              style="height: 24px; width: 24px"
+                            >
+                              <svg
+                                aria-label="More options"
+                                class="_8-yf5"
+                                fill="#262626"
+                                height="16"
+                                viewBox="0 0 48 48"
+                                width="16"
+                              >
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="8"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="24"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                                <circle
+                                  clip-rule="evenodd"
+                                  cx="40"
+                                  cy="24"
+                                  fill-rule="evenodd"
+                                  r="4.5"
+                                ></circle>
+                              </svg>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div class="body">
+                          <img
+                            alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
+                            class="FFVAD"
+                            decoding="auto"
+                            sizes="614px"
+                            src="assets/post.png"
+                            style="object-fit: cover"
+                          />
+                        </div>
+
+                        <div class="footer">
+
+                          <div class="user-actions">
+
+                            <div class="like-comment-share">
+
+                              <div>
+                                <span class=""
+                                  ><svg
+                                    aria-label="Like"
+                                    class="_8-yf5"
+                                    fill="#262626"
+                                    height="24"
+                                    viewBox="0 0 48 48"
+                                    width="24"
+                                  >
+                                    <path
+                                      d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                    ></path></svg>
+                                </span>
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Comment"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                                    fill-rule="evenodd"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                              <div class="margin-left-small">
+                                <svg
+                                  aria-label="Share Post"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                            <div class="bookmark">
+
+                              <div class="QBdPU rrUvL">
+                                <svg
+                                  aria-label="Save"
+                                  class="_8-yf5"
+                                  fill="#262626"
+                                  height="24"
+                                  viewBox="0 0 48 48"
+                                  width="24"
+                                >
+                                  <path
+                                    d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                                  ></path>
+                                </svg>
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                          <span class="likes"
+                            >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
+                          >
+                          <span class="caption">
+                            <span class="caption-username"><b>jayshetty</b></span>
+                            <span class="caption-text">
+                              ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
+                              more</span
+                            >
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>akhilboddu</b></span>
+                            <span class="caption-text">Thank you</span>
+                          </span>
+
+                          <span class="comment">
+                            <span class="caption-username"><b>imharjot</b></span>
+                            <span class="caption-text"> Great stuff</span>
+                          </span>
+
+                          <span class="posted-time">5 HOURS AGO</span>
+                        </div>
+
+                        <div class="add-comment">
+                          <input type="text" placeholder="Add a comment..." />
+                          <a class="post-btn">Post</a>
+                        </div>
+
+                      </div> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar">
+              <div class="profile-details">
+                <div class="profile-details-pic">
+                  <img
+                    class="story-image"
+                    alt="akhilboddu's profile picture"
+                    data-testid="user-avatar"
+                    draggable="false"
+                    src="assets/akhil.png"
+                  />
+                </div>
+
+                <div class="user-details">
+                  <span class="username"></span>
+                  <span class="name"></span>
+                </div>
+              </div>
+
+              <div class="suggestions">
+                <div class="suggestions-header">
+                  <span class="title">Suggestions for you</span>
+                  <a class="see-all-btn">See all</a>
+                </div>
+
+                <div class="suggestion">
+                  <div class="suggestion-details">
+                    <div class="suggestion-pic">
+                      <img
+                        alt="imharjotsingh's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                    </div>
+
+                    <div class="suggestion-profile-details">
+                      <span class="profile-name">imharjot</span>
+                      <span class="text-muted">New to instagram</span>
+                    </div>
+                  </div>
+
+                  <a class="follow-btn">Follow</a>
+                </div>
+
+                <div class="suggestion">
+                  <div class="suggestion-details">
+                    <div class="suggestion-pic">
+                      <img
+                        alt="imharjotsingh's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                    </div>
+
+                    <div class="suggestion-profile-details">
+                      <span class="profile-name">imharjot</span>
+                      <span class="text-muted">New to instagram</span>
+                    </div>
+                  </div>
+
+                  <a class="follow-btn">Follow</a>
+                </div>
+
+                <div class="suggestion">
+                  <div class="suggestion-details">
+                    <div class="suggestion-pic">
+                      <img
+                        alt="imharjotsingh's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                    </div>
+
+                    <div class="suggestion-profile-details">
+                      <span class="profile-name">imharjot</span>
+                      <span class="text-muted">New to instagram</span>
+                    </div>
+                  </div>
+
+                  <a class="follow-btn">Follow</a>
+                </div>
+
+                <div class="suggestion">
+                  <div class="suggestion-details">
+                    <div class="suggestion-pic">
+                      <img
+                        alt="imharjotsingh's profile picture"
+                        data-testid="user-avatar"
+                        draggable="false"
+                        src="assets/akhil.png"
+                      />
+                    </div>
+
+                    <div class="suggestion-profile-details">
+                      <span class="profile-name">imharjot</span>
+                      <span class="text-muted">New to instagram</span>
+                    </div>
+                  </div>
+
+                  <a class="follow-btn">Follow</a>
+                </div>
+              </div>
+
+              <div class="sidebar-footer"></div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div class="ps" style="height: 100vh; width: 100%">
+      <div id="upload-screen">
+        <div class="contaner">
+          <div
+            class="display_and_image_selection"
+            style="background-color: blue"
+          >
+            <!-- overlay these two -->
+            <div class="imageDisplay" id="changedimage">
+              <!-- display the image here and make it click able only when an image 
+                has been selected at least once -->
+            </div>
+
+            <div class="button">
+              <span class="ImageSelect">
+                <i>
+                  <?xml version="1.0" ?>
+                  <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                  <svg
+                    height="512px"
+                    id="Layer_1"
+                    style="enable-background: new 0 0 512 512"
+                    version="1.1"
+                    viewBox="0 0 512 512"
+                    width="512px"
+                    xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <g>
+                      <g>
+                        <path
+                          d="M457.6,140.2l-82.5-4l-4.8-53.8c-1-11.3-11.1-19.2-22.9-18.3L51.4,88.4c-11.8,1-20.3,10.5-19.4,21.7l21.2,235.8    c1,11.3,11.2,19.2,22.9,18.3l15-1.2l-2.4,45.8c-0.6,12.6,9.2,22.8,22.4,23.5L441.3,448c13.2,0.6,24.1-8.6,24.8-21.2L480,163.5    C480.6,151,470.7,140.8,457.6,140.2z M102.6,145.5l-7.1,134.8L78.1,305l-16-178c0-0.2,0-0.3,0-0.5s0-0.3,0-0.5    c0.5-5,4.3-9,9.5-9.4l261-21.4c5.2-0.4,9.7,3,10.5,7.9c0,0.2,0.3,0.2,0.3,0.4c0,0.1,0.3,0.2,0.3,0.4l2.7,30.8l-219-10.5    C114.2,123.8,103.2,133,102.6,145.5z M436.7,382.4l-46.7-55.3l-27.5-32.7c-2.4-2.9-6.3-5.3-10.6-5.5c-4.3-0.2-7.5,1.5-11.1,4.1    l-16.4,11.9c-3.5,2.1-6.2,3.5-9.9,3.3c-3.6-0.2-6.8-1.6-9.1-3.8c-0.8-0.8-2.3-2.2-3.5-3.4l-42.8-48.9c-3.1-3.9-8.2-6.4-13.8-6.7    c-5.7-0.3-11.2,2.1-14.8,5.6L129.4,359.8l-6.8,7.4l0.3-6.8l6.8-128.9l3.3-62.9c0-0.2,0-0.4,0-0.5c0-0.2,0-0.4,0-0.5    c1.4-5.4,6.2-9.3,11.9-9l204.2,9.8l28.7,1.4l58.3,2.8c5.8,0.3,10.3,4.7,10.4,10.2c0,0.2,0.3,0.3,0.3,0.5c0,0.2,0.3,0.3,0.3,0.5    L436.7,382.4z"
+                        />
+                      </g>
+                      <path
+                        d="M373.2,262.3c19.4,0,35.2-15.8,35.2-35.2s-15.7-35.2-35.2-35.2c-19.4,0-35.2,15.7-35.2,35.2S353.7,262.3,373.2,262.3z"
+                      />
+                    </g>
+                  </svg>
+                </i>
+              </span>
+
+              <!-- The text for the user to click and choose an image 
+                        then that image is the one selected and displayed 
+                        on the above div while the text disapears from view 
+                    
+                        but the dive is clickable -->
+            </div>
+
+            <div class="updateImage">
+              <span class="UpdatedImage">
+                <i id="toUpdateImage">
+                  <?xml version="1.0" ?>
+                  <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                  <svg
+                    height="32px"
+                    id="Layer_1"
+                    style="enable-background: new 0 0 512 512"
+                    version="1.1"
+                    viewBox="0 0 512 512"
+                    width="45px"
+                    xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <g>
+                      <path
+                        d="M368,224c26.5,0,48-21.5,48-48c0-26.5-21.5-48-48-48c-26.5,0-48,21.5-48,48C320,202.5,341.5,224,368,224z"
+                      />
+                      <path
+                        d="M452,64H60c-15.6,0-28,12.7-28,28.3v327.4c0,15.6,12.4,28.3,28,28.3h392c15.6,0,28-12.7,28-28.3V92.3   C480,76.7,467.6,64,452,64z M348.9,261.7c-3-3.5-7.6-6.2-12.8-6.2c-5.1,0-8.7,2.4-12.8,5.7l-18.7,15.8c-3.9,2.8-7,4.7-11.5,4.7   c-4.3,0-8.2-1.6-11-4.1c-1-0.9-2.8-2.6-4.3-4.1L224,215.3c-4-4.6-10-7.5-16.7-7.5c-6.7,0-12.9,3.3-16.8,7.8L64,368.2V107.7   c1-6.8,6.3-11.7,13.1-11.7h357.7c6.9,0,12.5,5.1,12.9,12l0.3,260.4L348.9,261.7z"
+                      />
+                    </g>
+                  </svg>
+                </i>
+              </span>
+            </div>
+          </div>
+
+          <div class="action_section">
+            <div class="caption">
+              <input type="text" placeholder="Caption" id="caption" />
+            </div>
+
+            <div class="action_buttons">
+              <div class="icons">
+                <div class="post">
+                  <i id="Upload">
+                    <?xml version="1.0" ?>
+                    <svg
+                      id="Layer_1"
+                      style="enable-background: new 0 0 128 128"
+                      version="1.1"
+                      viewBox="0 0 128 128"
+                      xml:space="preserve"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <style type="text/css">
+                        .st0 {
+                          fill: #31af91;
+                        }
+                        .st1 {
+                          fill: #ffffff;
+                        }
+                      </style>
+                      <g>
+                        <circle class="st0" cx="64" cy="64" r="64" />
+                      </g>
+                      <g>
+                        <path
+                          class="st1"
+                          d="M54.3,97.2L24.8,67.7c-0.4-0.4-0.4-1,0-1.4l8.5-8.5c0.4-0.4,1-0.4,1.4,0L55,78.1l38.2-38.2   c0.4-0.4,1-0.4,1.4,0l8.5,8.5c0.4,0.4,0.4,1,0,1.4L55.7,97.2C55.3,97.6,54.7,97.6,54.3,97.2z"
+                        />
+                      </g>
+                    </svg>
+                  </i>
+                </div>
+                <div class="update">
+                  <i id="update">
+                    <?xml version="1.0" ?><!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                    <svg
+                      height="512px"
+                      id="Layer_1"
+                      style="enable-background: new 0 0 512 512"
+                      version="1.1"
+                      viewBox="0 0 512 512"
+                      width="512px"
+                      xml:space="preserve"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <path
+                        d="M364.1,256c0,60-48.5,108.2-108.1,108.2S147.9,315.7,147.9,256c0-59.6,48.5-108.1,108.1-108.1v55.8l96-55.7l-96-64v44  c-70.7,0-128,57.4-128,128.1c0,70.8,57.3,128.1,128,128.1c70.7,0,128-57.1,128-128.1H364.1z"
+                      />
+                      <g>
+                        <g>
+                          <path
+                            d="M256,48C141.1,48,48,141.1,48,256s93.1,208,208,208c114.9,0,208-93.1,208-208S370.9,48,256,48z M256,446.7    c-105.1,0-190.7-85.5-190.7-190.7c0-105.1,85.5-190.7,190.7-190.7c105.1,0,190.7,85.5,190.7,190.7    C446.7,361.1,361.1,446.7,256,446.7z"
+                          />
+                        </g>
+                      </g>
+                    </svg>
+                  </i>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <main>
-        <div class="content-container">
-          <div class="content">
-            <div class="stories">
-              <div class="stories-inner">
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">akhilboddu</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">nastycsa</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">jayshetty</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">cleverqazi</span>
-                </div>
+    </div>
 
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">poojahegde</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">she.cancode</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">anushkasharma</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">tech.unicorn</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">lamborghini</span>
-                </div>
-                <div class="story">
-                  <img
-                    class="story-image"
-                    alt="akhilboddu's profile picture"
-                    data-testid="user-avatar"
-                    draggable="false"
-                    src="assets/akhil.png"
-                  />
-                  <div class="story-border"></div>
-                  <span class="story-text">garyvee</span>
-                </div>
-              </div>
-            </div>
-            <div class="posts">
-              <div class="post">
-                <div class="header">
-                  <div class="profile-area">
-                    <div class="post-pic">
-                      <img
-                        alt="jayshetty's profile picture"
-                        class="_6q-tv"
-                        data-testid="user-avatar"
-                        draggable="false"
-                        src="assets/akhil.png"
-                      />
-                    </div>
-                    <span class="profile-name">jayshetty</span>
-                  </div>
-                  <div class="options">
-                    <div
-                      class="Igw0E rBNOH YBx95 _4EzTm"
-                      style="height: 24px; width: 24px"
-                    >
-                      <svg
-                        aria-label="More options"
-                        class="_8-yf5"
-                        fill="#262626"
-                        height="16"
-                        viewBox="0 0 48 48"
-                        width="16"
-                      >
-                        <circle
-                          clip-rule="evenodd"
-                          cx="8"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="24"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="40"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="body">
-                  <img
-                    alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
-                    class="FFVAD"
-                    decoding="auto"
-                    sizes="614px"
-                    src="assets/post.png"
-                    style="object-fit: cover"
-                  />
-                </div>
-                <div class="footer">
-                  <div class="user-actions">
-                    <div class="like-comment-share">
-                      <div>
-                        <span class=""
-                          ><svg
-                            aria-label="Like"
-                            class="_8-yf5"
-                            fill="#262626"
-                            height="24"
-                            viewBox="0 0 48 48"
-                            width="24"
-                          >
-                            <path
-                              d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                            ></path></svg
-                        ></span>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Comment"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Share Post"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="bookmark">
-                      <div class="QBdPU rrUvL">
-                        <svg
-                          aria-label="Save"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="likes"
-                    >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
-                  >
-                  <span class="caption">
-                    <span class="caption-username"><b>jayshetty</b></span>
-                    <span class="caption-text">
-                      ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
-                      more</span
-                    >
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>akhilboddu</b></span>
-                    <span class="caption-text">Thank you</span>
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>imharjot</b></span>
-                    <span class="caption-text"> Great stuff</span>
-                  </span>
-                  <span class="posted-time">5 HOURS AGO</span>
-                </div>
-                <div class="add-comment">
-                  <input type="text" placeholder="Add a comment..." />
-                  <a class="post-btn">Post</a>
-                </div>
-              </div>
-              <div class="post">
-                <div class="header">
-                  <div class="profile-area">
-                    <div class="post-pic">
-                      <img
-                        alt="jayshetty's profile picture"
-                        class="_6q-tv"
-                        data-testid="user-avatar"
-                        draggable="false"
-                        src="assets/akhil.png"
-                      />
-                    </div>
-                    <span class="profile-name">jayshetty</span>
-                  </div>
-                  <div class="options">
-                    <div
-                      class="Igw0E rBNOH YBx95 _4EzTm"
-                      style="height: 24px; width: 24px"
-                    >
-                      <svg
-                        aria-label="More options"
-                        class="_8-yf5"
-                        fill="#262626"
-                        height="16"
-                        viewBox="0 0 48 48"
-                        width="16"
-                      >
-                        <circle
-                          clip-rule="evenodd"
-                          cx="8"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="24"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="40"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="body">
-                  <img
-                    alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
-                    class="FFVAD"
-                    decoding="auto"
-                    sizes="614px"
-                    src="assets/post.png"
-                    style="object-fit: cover"
-                  />
-                </div>
-                <div class="footer">
-                  <div class="user-actions">
-                    <div class="like-comment-share">
-                      <div>
-                        <span class=""
-                          ><svg
-                            aria-label="Like"
-                            class="_8-yf5"
-                            fill="#262626"
-                            height="24"
-                            viewBox="0 0 48 48"
-                            width="24"
-                          >
-                            <path
-                              d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                            ></path></svg
-                        ></span>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Comment"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Share Post"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="bookmark">
-                      <div class="QBdPU rrUvL">
-                        <svg
-                          aria-label="Save"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="likes"
-                    >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
-                  >
-                  <span class="caption">
-                    <span class="caption-username"><b>jayshetty</b></span>
-                    <span class="caption-text">
-                      ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
-                      more</span
-                    >
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>akhilboddu</b></span>
-                    <span class="caption-text">Thank you</span>
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>imharjot</b></span>
-                    <span class="caption-text"> Great stuff</span>
-                  </span>
-                  <span class="posted-time">5 HOURS AGO</span>
-                </div>
-                <div class="add-comment">
-                  <input type="text" placeholder="Add a comment..." />
-                  <a class="post-btn">Post</a>
-                </div>
-              </div>
-              <div class="post">
-                <div class="header">
-                  <div class="profile-area">
-                    <div class="post-pic">
-                      <img
-                        alt="jayshetty's profile picture"
-                        class="_6q-tv"
-                        data-testid="user-avatar"
-                        draggable="false"
-                        src="assets/akhil.png"
-                      />
-                    </div>
-                    <span class="profile-name">jayshetty</span>
-                  </div>
-                  <div class="options">
-                    <div
-                      class="Igw0E rBNOH YBx95 _4EzTm"
-                      style="height: 24px; width: 24px"
-                    >
-                      <svg
-                        aria-label="More options"
-                        class="_8-yf5"
-                        fill="#262626"
-                        height="16"
-                        viewBox="0 0 48 48"
-                        width="16"
-                      >
-                        <circle
-                          clip-rule="evenodd"
-                          cx="8"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="24"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="40"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="body">
-                  <img
-                    alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
-                    class="FFVAD"
-                    decoding="auto"
-                    sizes="614px"
-                    src="assets/post.png"
-                    style="object-fit: cover"
-                  />
-                </div>
-                <div class="footer">
-                  <div class="user-actions">
-                    <div class="like-comment-share">
-                      <div>
-                        <span class=""
-                          ><svg
-                            aria-label="Like"
-                            class="_8-yf5"
-                            fill="#262626"
-                            height="24"
-                            viewBox="0 0 48 48"
-                            width="24"
-                          >
-                            <path
-                              d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                            ></path></svg
-                        ></span>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Comment"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Share Post"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="bookmark">
-                      <div class="QBdPU rrUvL">
-                        <svg
-                          aria-label="Save"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="likes"
-                    >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
-                  >
-                  <span class="caption">
-                    <span class="caption-username"><b>jayshetty</b></span>
-                    <span class="caption-text">
-                      ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
-                      more</span
-                    >
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>akhilboddu</b></span>
-                    <span class="caption-text">Thank you</span>
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>imharjot</b></span>
-                    <span class="caption-text"> Great stuff</span>
-                  </span>
-                  <span class="posted-time">5 HOURS AGO</span>
-                </div>
-                <div class="add-comment">
-                  <input type="text" placeholder="Add a comment..." />
-                  <a class="post-btn">Post</a>
-                </div>
-              </div>
-              <div class="post">
-                <div class="header">
-                  <div class="profile-area">
-                    <div class="post-pic">
-                      <img
-                        alt="jayshetty's profile picture"
-                        class="_6q-tv"
-                        data-testid="user-avatar"
-                        draggable="false"
-                        src="assets/akhil.png"
-                      />
-                    </div>
-                    <span class="profile-name">jayshetty</span>
-                  </div>
-                  <div class="options">
-                    <div
-                      class="Igw0E rBNOH YBx95 _4EzTm"
-                      style="height: 24px; width: 24px"
-                    >
-                      <svg
-                        aria-label="More options"
-                        class="_8-yf5"
-                        fill="#262626"
-                        height="16"
-                        viewBox="0 0 48 48"
-                        width="16"
-                      >
-                        <circle
-                          clip-rule="evenodd"
-                          cx="8"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="24"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="40"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="body">
-                  <img
-                    alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
-                    class="FFVAD"
-                    decoding="auto"
-                    sizes="614px"
-                    src="assets/post.png"
-                    style="object-fit: cover"
-                  />
-                </div>
-                <div class="footer">
-                  <div class="user-actions">
-                    <div class="like-comment-share">
-                      <div>
-                        <span class=""
-                          ><svg
-                            aria-label="Like"
-                            class="_8-yf5"
-                            fill="#262626"
-                            height="24"
-                            viewBox="0 0 48 48"
-                            width="24"
-                          >
-                            <path
-                              d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                            ></path></svg
-                        ></span>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Comment"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Share Post"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="bookmark">
-                      <div class="QBdPU rrUvL">
-                        <svg
-                          aria-label="Save"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="likes"
-                    >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
-                  >
-                  <span class="caption">
-                    <span class="caption-username"><b>jayshetty</b></span>
-                    <span class="caption-text">
-                      ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
-                      more</span
-                    >
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>akhilboddu</b></span>
-                    <span class="caption-text">Thank you</span>
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>imharjot</b></span>
-                    <span class="caption-text"> Great stuff</span>
-                  </span>
-                  <span class="posted-time">5 HOURS AGO</span>
-                </div>
-                <div class="add-comment">
-                  <input type="text" placeholder="Add a comment..." />
-                  <a class="post-btn">Post</a>
-                </div>
-              </div>
-              <div class="post">
-                <div class="header">
-                  <div class="profile-area">
-                    <div class="post-pic">
-                      <img
-                        alt="jayshetty's profile picture"
-                        class="_6q-tv"
-                        data-testid="user-avatar"
-                        draggable="false"
-                        src="assets/akhil.png"
-                      />
-                    </div>
-                    <span class="profile-name">jayshetty</span>
-                  </div>
-                  <div class="options">
-                    <div
-                      class="Igw0E rBNOH YBx95 _4EzTm"
-                      style="height: 24px; width: 24px"
-                    >
-                      <svg
-                        aria-label="More options"
-                        class="_8-yf5"
-                        fill="#262626"
-                        height="16"
-                        viewBox="0 0 48 48"
-                        width="16"
-                      >
-                        <circle
-                          clip-rule="evenodd"
-                          cx="8"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="24"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                        <circle
-                          clip-rule="evenodd"
-                          cx="40"
-                          cy="24"
-                          fill-rule="evenodd"
-                          r="4.5"
-                        ></circle>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="body">
-                  <img
-                    alt="Photo by Jay Shetty on September 12, 2020. Image may contain: 2 people."
-                    class="FFVAD"
-                    decoding="auto"
-                    sizes="614px"
-                    src="assets/post.png"
-                    style="object-fit: cover"
-                  />
-                </div>
-                <div class="footer">
-                  <div class="user-actions">
-                    <div class="like-comment-share">
-                      <div>
-                        <span class=""
-                          ><svg
-                            aria-label="Like"
-                            class="_8-yf5"
-                            fill="#262626"
-                            height="24"
-                            viewBox="0 0 48 48"
-                            width="24"
-                          >
-                            <path
-                              d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                            ></path></svg
-                        ></span>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Comment"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <div class="margin-left-small">
-                        <svg
-                          aria-label="Share Post"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="bookmark">
-                      <div class="QBdPU rrUvL">
-                        <svg
-                          aria-label="Save"
-                          class="_8-yf5"
-                          fill="#262626"
-                          height="24"
-                          viewBox="0 0 48 48"
-                          width="24"
-                        >
-                          <path
-                            d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="likes"
-                    >Liked by <b>ishitaaaa.b</b> and <b>others</b></span
-                  >
-                  <span class="caption">
-                    <span class="caption-username"><b>jayshetty</b></span>
-                    <span class="caption-text">
-                      ORDER NOW: www.thinklikeamonkbook.com (LINK IN BIO)...
-                      more</span
-                    >
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>akhilboddu</b></span>
-                    <span class="caption-text">Thank you</span>
-                  </span>
-                  <span class="comment">
-                    <span class="caption-username"><b>imharjot</b></span>
-                    <span class="caption-text"> Great stuff</span>
-                  </span>
-                  <span class="posted-time">5 HOURS AGO</span>
-                </div>
-                <div class="add-comment">
-                  <input type="text" placeholder="Add a comment..." />
-                  <a class="post-btn">Post</a>
-                </div>
-              </div>
-            </div>
+    <!-- <div class="profileScreen">
+
+      <div class="profile-container border-bottom border-secondary">
+
+        <div class="profileSection mb-5 ">
+
+          <div class="profileScreen-profilepic">
+            <img src="assets/akhil.png" class="img-fluid my-profile-pic" alt="">
           </div>
-          <div class="sidebar">
-            <div class="profile-details">
-              <div class="profile-details-pic">
-                <img
-                  class="story-image"
-                  alt="akhilboddu's profile picture"
-                  data-testid="user-avatar"
-                  draggable="false"
-                  src="assets/akhil.png"
-                />
-              </div>
-              <div class="user-details">
-                <span class="username">akhilboddu</span>
-                <span class="name">Akhil Boddu</span>
+
+          <div class="details fw-bold">
+
+            <div class="section1">
+              <div class="username-profile mx-2">A</div>
+              <div class=" mx-2 "><a type="button" class="btn btn-secondary px-2">Edith Profile</a></div>
+              <div class=" mx-2 "><a type="button" class="btn btn-secondary px-2">View Archive</a></div>
+            </div>
+
+            <div class="section2 mt-3">
+              <div class=" mx-2"> 567 Posts</div>
+              <div class=" mx-2">12.5 M Followers</div>
+              <div class=" mx-2">456 Following</div>
+            </div>
+
+            <div class="section3 mt-3">
+
+              <div class="name-profile fw-bold mx-2" style="font-weight: bold;">A</div>
+              <div class=" fw-bold logout " style="display: flex;">
+                <button type="button" class="btn btn-secondary logout mx-2 d-flex">Logout</button>
               </div>
             </div>
-            <div class="suggestions">
-              <div class="suggestions-header">
-                <span class="title">Suggestions for you</span>
-                <a class="see-all-btn">See all</a>
-              </div>
-              <div class="suggestion">
-                <div class="suggestion-details">
-                  <div class="suggestion-pic">
-                    <img
-                      alt="imharjotsingh's profile picture"
-                      data-testid="user-avatar"
-                      draggable="false"
-                      src="assets/akhil.png"
-                    />
-                  </div>
-                  <div class="suggestion-profile-details">
-                    <span class="profile-name">imharjot</span>
-                    <span class="text-muted">New to instagram</span>
-                  </div>
-                </div>
-                <a class="follow-btn">Follow</a>
-              </div>
-              <div class="suggestion">
-                <div class="suggestion-details">
-                  <div class="suggestion-pic">
-                    <img
-                      alt="imharjotsingh's profile picture"
-                      data-testid="user-avatar"
-                      draggable="false"
-                      src="assets/akhil.png"
-                    />
-                  </div>
-                  <div class="suggestion-profile-details">
-                    <span class="profile-name">imharjot</span>
-                    <span class="text-muted">New to instagram</span>
-                  </div>
-                </div>
-                <a class="follow-btn">Follow</a>
-              </div>
-              <div class="suggestion">
-                <div class="suggestion-details">
-                  <div class="suggestion-pic">
-                    <img
-                      alt="imharjotsingh's profile picture"
-                      data-testid="user-avatar"
-                      draggable="false"
-                      src="assets/akhil.png"
-                    />
-                  </div>
-                  <div class="suggestion-profile-details">
-                    <span class="profile-name">imharjot</span>
-                    <span class="text-muted">New to instagram</span>
-                  </div>
-                </div>
-                <a class="follow-btn">Follow</a>
-              </div>
-              <div class="suggestion">
-                <div class="suggestion-details">
-                  <div class="suggestion-pic">
-                    <img
-                      alt="imharjotsingh's profile picture"
-                      data-testid="user-avatar"
-                      draggable="false"
-                      src="assets/akhil.png"
-                    />
-                  </div>
-                  <div class="suggestion-profile-details">
-                    <span class="profile-name">imharjot</span>
-                    <span class="text-muted">New to instagram</span>
-                  </div>
-                </div>
-                <a class="follow-btn">Follow</a>
-              </div>
-            </div>
-            <div class="sidebar-footer"></div>
+
+          </div>
+
+        </div>
+        
+      </div>
+
+      <div class="profileFooter py-4">
+
+        <div class="links fw-bold">
+          <div class="px-2">Meta</div>
+          <div class="px-2">About</div>
+          <div class="px-2">Bog</div>
+          <div class="px-2">Jobs</div>
+          <div class="px-2">Help</div>
+          <div class="px-2">API</div>
+          <div class="px-2">Privacy</div>
+          <div class="px-2">Terms</div>
+          <div class="px-2">Locations</div>
+          <div class="px-2">Instagram Lite</div>
+          <div class="px-2">Treads</div>
+          <div class="px-2">Contact uploading and Non-users</div>
+          <div class="px-2">Meta Verified</div>
+        </div>
+
+        <div class="search-tab pt-3">
+          <div class="second-content px-2">
+            <select aria-label="Switch display language" class="x1ypdohk x5yr21d xg01cxk x10l6tqk x17qophe x13vifvy xh8yej3"><option value="af">Afrikaans</option><option value="cs">Čeština</option><option value="da">Dansk</option><option value="de">Deutsch</option><option value="el">Ελληνικά</option><option value="en">English</option><option value="en-gb">English (UK)</option><option value="es">Español (España)</option><option value="es-la">Español</option><option value="fi">Suomi</option><option value="fr">Français</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="ms">Bahasa Melayu</option><option value="nb">Norsk</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="pt-br">Português (Brasil)</option><option value="pt">Português (Portugal)</option><option value="ru">Русский</option><option value="sv">Svenska</option><option value="th">ภาษาไทย</option><option value="tl">Filipino</option><option value="tr">Türkçe</option><option value="zh-cn">中文(简体)</option><option value="zh-tw">中文(台灣)</option><option value="bn">বাংলা</option><option value="gu">ગુજરાતી</option><option value="hi">हिन्दी</option><option value="hr">Hrvatski</option><option value="hu">Magyar</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option><option value="mr">मराठी</option><option value="ne">नेपाली</option><option value="pa">ਪੰਜਾਬੀ</option><option value="si">සිංහල</option><option value="sk">Slovenčina</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option><option value="vi">Tiếng Việt</option><option value="zh-hk">中文(香港)</option><option value="bg">Български</option><option value="fr-ca">Français (Canada)</option><option value="ro">Română</option><option value="sr">Српски</option><option value="uk">Українська</option></select>
+          </div>
+          <div class="second-content">
+            © 2024 Instagram from Meta
           </div>
         </div>
-      </main>
+      </div>
+
+    </div> -->
+    <!-- <div id="upload-screen">
+       
+      <div class="display">
+        <div id="display" style="height: 200px; width: 200px; border: 3px solid rgb(102, 255, 0);"></div>
+      
+        <span>Select Image</span>
+      </div>
+   
+    <input  id="upload-image" type="file" placeholder="Choose image">
+
+    <input id="upload-image-description" type="text" placeholder="description">
+
+    
+    <img id="image-view" style="height: 500px; width: 300px; border: 3px solid blue;">
+   
+
+    <button id="post-button">
+     Post
+    </button>
+
+    <button id="update-button">
+     Update
+    </button>
+
+    <button id="back-button">
+     cancel
+    </button>
+    
+    </div> -->
+
+    <div id="edit-modal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <ul class="modal-menu-tabs">
+          <!--these ones are visible if its the current signed in users post  -->
+          <li class="modal-tabs" id="editButton">Edit</li>
+          <li class="modal-tabs" id="deleteButton">Delete</li>
+
+          <!--if its just another persons post -->
+          <li class="modal-tabs">Report</li>
+          <li class="modal-tabs">Unfollow</li>
+          <li class="modal-tabs">Go to Post</li>
+          <li class="modal-tabs">Share to</li>
+          <li class="modal-tabs">Copy link</li>
+          <li class="modal-tabs">Embed</li>
+          <li class="modal-tabs">Cancel</li>
+        </ul>
+
+        <div id="modalClose">
+          <i>
+            <?xml version="1.0" ?><svg
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M8,14 C11.3137085,14 14,11.3137085 14,8 C14,4.6862915 11.3137085,2 8,2 C4.6862915,2 2,4.6862915 2,8 C2,11.3137085 4.6862915,14 8,14 Z M8,9.41421356 L5.70710678,11.7071068 L4.29289322,10.2928932 L6.58578644,8 L4.29289322,5.70710678 L5.70710678,4.29289322 L8,6.58578644 L10.2928932,4.29289322 L11.7071068,5.70710678 L9.41421356,8 L11.7071068,10.2928932 L10.2928932,11.7071068 L8,9.41421356 Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </div>
+      </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDMlUnngXhxagfmTlSoWUOPgdKkIQC6dC0",
+        authDomain: "instagram-clone-1b5a3.firebaseapp.com",
+        projectId: "instagram-clone-1b5a3",
+        storageBucket: "instagram-clone-1b5a3.appspot.com",
+        messagingSenderId: "296222381483",
+        appId: "1:296222381483:web:c5b42452cd7137eaae6eee",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
   </body>
 </html>
